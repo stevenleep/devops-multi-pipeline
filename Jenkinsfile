@@ -1,9 +1,25 @@
 pipeline {
     agent any
+    parameters {
+        string(
+            name: "name",
+            description: "Name of the pipeline",
+            defaultValue: "pipeline",
+            // required: true
+        )
+        string(
+            name: "description",
+            description: "Description of the pipeline",
+            defaultValue: "Pipeline description",
+            // required: true
+        )
+    }
+
     stages {
-        stage('test') {
+        stage('Pull resources from github') {
             steps {
-                sh 'echo "Hello World"'
+                echo "start pulling resources from github"
+                sh "whoami"
             }
         }
     }
